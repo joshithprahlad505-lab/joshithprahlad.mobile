@@ -9,3 +9,18 @@
 
 /* Keep the full name together */
 .hero h1 em{white-space:nowrap;font-size:.78em}
+body.dialog-open{overflow:hidden!important;touch-action:none}
+.email-button{border-color:#ea4335!important;background:#fff!important;color:#202124!important}
+.email-button small{color:#5f6368!important}
+.email-button strong{color:#202124!important}
+.call-swipe{position:relative;height:56px;margin-top:18px;border:1px solid #76a7ff5b;background:#76a7ff0a;overflow:hidden;touch-action:none;user-select:none}
+.call-swipe-label{position:absolute;inset:0;display:grid;place-items:center;color:var(--cyan);font:9px var(--mono);letter-spacing:.14em}
+.call-swipe-handle{position:absolute;left:4px;top:4px;bottom:4px;width:48px;display:grid;place-items:center;background:var(--cyan);color:#000;font:22px var(--head);cursor:grab;box-shadow:0 0 18px #76a7ff66;animation:call-nudge 2.4s ease-in-out infinite}
+@keyframes call-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}
+
+/* Compact header and animated status gear */
+.brand{font-size:12px!important;letter-spacing:.06em!important;white-space:nowrap}
+.connection i{width:auto!important;height:auto!important;margin-right:6px!important;background:none!important;box-shadow:none!important;border-radius:0!important;font-style:normal;display:inline-block!important;font-size:14px;line-height:1;animation:status-gear 2.2s linear infinite,status-pulse 1.6s ease-in-out infinite}
+.connection i::before{content:"⚙"}
+@keyframes status-gear{to{transform:rotate(360deg)}}
+@keyframes status-pulse{0%,100%{filter:drop-shadow(0 0 0 transparent);opacity:.65}50%{filter:drop-shadow(0 0 7px var(--cyan));opacity:1}}

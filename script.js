@@ -12,6 +12,30 @@ function updatePageReadout() {
 window.addEventListener('scroll', updatePageReadout, { passive: true });
 updatePageReadout();
 
+const contact = document.querySelector('.comms-content');
+if (contact) {
+  const buttons = [...contact.querySelectorAll('.comms-button')];
+  const email = buttons.find(button => button.href.includes('mail.google.com'));
+  const whatsapp = buttons.find(button => button.href.includes('wa.me'));
+  if (email && whatsapp) {
+    email.classList.add('email-button');
+    const emailLabel = email.querySelector('small');
+    if (emailLabel) emailLabel.textContent = 'GMAIL / DIRECT CONTACT';
+    const linkedin = document.createElement('a');
+    linkedin.className = 'comms-button linkedin-button';
+    linkedin.href = 'https://www.linkedin.com/in/joshith-prahlad-bheemaneni-a48589288';
+    linkedin.target = '_blank';
+    linkedin.rel = 'noopener';
+    linkedin.innerHTML = '<span><strong>LinkedIn</strong></span>';
+    linkedin.style.background = '#0A66C2';
+    linkedin.style.color = '#fff';
+    email.before(linkedin);
+    whatsapp.classList.add('whatsapp-button');
+    whatsapp.querySelector('strong').style.fontSize = '14px';
+    whatsapp.querySelector('small').style.fontSize = '7px';
+  }
+}
+
 document.querySelectorAll('.skills-track').forEach(skillsTrack => {
   const skillsGroup = skillsTrack.querySelector('.skills-group');
   if (!skillsGroup) return;
@@ -42,13 +66,12 @@ document.querySelectorAll('.mission-entry').forEach(entry => {
     document.querySelector('#entry-approach').textContent = entry.dataset.approach;
     document.querySelector('#entry-outcome').textContent = entry.dataset.outcome;
     dialog.showModal();
+    document.body.classList.add('dialog-open');
   });
 });
 
-document.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
-dialog.addEventListener('click', event => {
-  if (event.target === dialog) dialog.close();
+document.querySelector('.dialog-close').addEventListener('click', () => {
+  dialog.close();
+  document.body.classList.remove('dialog-open');
 });
-window.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && dialog.open) dialog.close();
-});
+
