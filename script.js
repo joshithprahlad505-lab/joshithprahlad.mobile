@@ -17,7 +17,7 @@ if (contact) {
   const buttons = [...contact.querySelectorAll('.comms-button')];
   const email = buttons.find(button => button.href.includes('mail.google.com'));
   const whatsapp = buttons.find(button => button.href.includes('wa.me'));
-  if (email && whatsapp) {
+  if (email) {
     email.classList.add('email-button');
     const emailLabel = email.querySelector('small');
     if (emailLabel) emailLabel.textContent = 'GMAIL / DIRECT CONTACT';
@@ -30,9 +30,6 @@ if (contact) {
     linkedin.style.background = '#0A66C2';
     linkedin.style.color = '#fff';
     email.before(linkedin);
-    whatsapp.classList.add('whatsapp-button');
-    whatsapp.querySelector('strong').style.fontSize = '14px';
-    whatsapp.querySelector('small').style.fontSize = '7px';
   }
 }
 
