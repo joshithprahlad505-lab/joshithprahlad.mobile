@@ -9,6 +9,7 @@
 
 /* Keep the full name together */
 .hero h1 em{white-space:nowrap;font-size:.78em}
+@media(min-width:761px){.hero h1{font-size:clamp(52px,7vw,96px)}.portrait-dock{width:min(40vw,480px);height:min(62vh,540px);transform:none}.portrait-dock img{inset:6% 8% 0;width:84%;height:94%;object-position:center 16%}}
 body.dialog-open{overflow:hidden!important;touch-action:none}
 .email-button{border-color:#ea4335!important;background:#fff!important;color:#202124!important}
 .email-button small{color:#5f6368!important}
@@ -20,6 +21,8 @@ body.dialog-open{overflow:hidden!important;touch-action:none}
 
 /* Compact header and animated status gear */
 .brand{font-size:12px!important;letter-spacing:.06em!important;white-space:nowrap}
+.topbar-label{display:none!important}
+.hero:before{display:none!important}
 .connection i{width:auto!important;height:auto!important;margin-right:6px!important;background:none!important;box-shadow:none!important;border-radius:0!important;font-style:normal;display:inline-block!important;font-size:14px;line-height:1;animation:status-gear 2.2s linear infinite,status-pulse 1.6s ease-in-out infinite}
 .connection i::before{content:"⚙"}
 @keyframes status-gear{to{transform:rotate(360deg)}}
