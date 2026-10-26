@@ -1,0 +1,11 @@
+/* Larger portrait framing */
+.portrait-dock{width:min(46vw,550px);height:min(70vh,650px);transform:translateY(4%)}
+.hero{background:#000}
+.portrait-dock img{inset:0 2% 0;width:96%;height:100%;mix-blend-mode:screen;mask-image:radial-gradient(ellipse at center,#000 48%,transparent 88%);-webkit-mask-image:radial-gradient(ellipse at center,#000 48%,transparent 88%)}
+@media(max-width:760px){.portrait-dock{width:min(88vw,390px);height:390px;transform:translate(50%,4%)}.portrait-dock img{inset:0 1% 0;width:98%;height:100%;mask-image:radial-gradient(ellipse at center,#000 52%,transparent 90%);-webkit-mask-image:radial-gradient(ellipse at center,#000 52%,transparent 90%)}}
+
+/* Steam engine project image */
+.entry-image.scene-1{background-image:url("assets/Gemini_Generated_Image_fvraqfvraqfvraqf.png")!important;background-size:cover!important;background-position:center!important}
+
+/* Keep the full name together */
+.hero h1 em{white-space:nowrap;font-size:.78em}
