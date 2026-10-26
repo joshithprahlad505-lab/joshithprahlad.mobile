@@ -15,8 +15,14 @@ updatePageReadout();
 const contact = document.querySelector('.comms-content');
 if (contact) {
   const buttons = [...contact.querySelectorAll('.comms-button')];
-  const email = buttons.find(button => button.href.includes('mail.google.com'));
-  const whatsapp = buttons.find(button => button.href.includes('wa.me'));
+  const email = buttons.find(button => {
+    try {
+      const url = new URL(button.href, window.location.href);
+      return url.origin === 'https://mail.google.com' && url.pathname === '/mail/';
+    } catch {
+      return false;
+    }
+  });
   if (email) {
     email.classList.add('email-button');
     const emailLabel = email.querySelector('small');
